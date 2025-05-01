@@ -1,3 +1,16 @@
+const menuBurguer = document.getElementById("menu-button");
+const navegacao = document.getElementById("navegacao");
+
+document.addEventListener("DOMContentLoaded", function () {
+  const linkPadrao = document.querySelector("nav a.active");
+  if (linkPadrao) {
+    navegarViaAjax(
+      linkPadrao.getAttribute("link"),
+      linkPadrao.getAttribute("destino")
+    );
+  }
+});
+
 function navegarViaAjax(url, seletor) {
   if (!url || !seletor) return;
 
@@ -74,3 +87,7 @@ function calcularProporcao() {
   const resultado = (valorBase / valorTotal) * 100;
   inputResultado.value = `${resultado.toFixed(2)}%`;
 }
+
+menuBurguer.addEventListener("click", () => {
+  navegacao.classList.toggle("mostrar");
+});

@@ -1,26 +1,31 @@
-<div class="inputs">
-  <p class="exemplo">Exemplo:15% de 300R$ é quanto?</p>
-  <div class="input">
-    <label for="percentual">Quanto é</label>
-    <input type="number" id="percentual" step="0.01" placeholder=" 0.00" />
-  </div>
-
-  <div class="input">
-    <label for="valorBase">De (valor)</label>
-    <input type="number" id="valorBase" step="0.01" placeholder=" 0.00" />
-  </div>
-
-  <div class="input action-group">
-    <label for="resultado">Resultado</label>
-    <input type="text" id="resultado" placeholder=" 0.00" readonly />
-
-    <div class="buttons">
-      <button class="botaoLimpar" id="limparPorcentagem">
-        Limpar <span class="material-symbols-outlined"> delete </span>
-      </button>
-      <button class="botaoCalcular" id="calcularPorcentagem">
-        Calcular <span class="material-symbols-outlined"> calculate </span>
-      </button>
+<div class="titulo">
+  <h2>PORCENTAGEM</h2>
+</div>
+<div class="colum">
+  <p>Exemplo: 15% de 300R$ é quanto?</p>
+  <div class="row">
+    <div class="input">
+      <label for="percentual">Quanto é</label>
+      <input type="number" id="percentual" step="0.01" placeholder=" 0.00" />
     </div>
+
+    <div class="input">
+      <label for="valorBase">De (valor)</label>
+      <input type="number" id="valorBase" step="0.01" placeholder=" 0.00" />
+    </div>
+
+    <div class="input">
+      <label for="resultado">Resultado</label>
+      <input type="text" id="resultado" placeholder=" 0.00" readonly />
+    </div>
+  </div>
+  <div class="buttons">
+    <button class="limpar" id="limparPorcentagem">
+      Limpar <span class="material-symbols-outlined"> delete </span>
+    </button>
+    <button class="calcular" id="calcularPorcentagem">
+      Calcular
+      <span class="material-symbols-outlined"> calculate </span>
+    </button>
   </div>
 </div>
