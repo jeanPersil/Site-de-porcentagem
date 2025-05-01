@@ -1,14 +1,26 @@
 <div id="calculadoraProporcao">
-  <p>Exemplo: 10R$ equivale a quantos % de 500R$?</p>
+  <div class="inputs">
+    <div class="input">
+      <label for="valorBase">O valor</label>
+      <input type="number" id="valorBase" step="0.01" placeholder=" 0.00" />
+    </div>
 
-  <label for="valorBase">O valor</label>
-  <input type="number" id="valorBase" step="0.01" placeholder="0.00" />
+    <div class="input">
+      <label for="valorTotal">É qual porcentagem de</label>
+      <input type="number" id="valorTotal" step="0.01" placeholder=" 0.00" />
+    </div>
 
-  <label for="valorTotal">É qual porcentagem de</label>
-  <input type="number" id="valorTotal" step="0.01" placeholder="0.00" />
-
-  <input type="text" id="resultado" placeholder="Resultado" readonly />
-
-  <button type="button" id="limpar">Limpar</button>
-  <button type="button" id="calcularProporcao">Calcular</button>
+    <div class="input action-group">
+      <label for="resultado">Resultado</label>
+      <input type="text" id="resultado" placeholder=" 0.00" readonly />
+      <div class="buttons">
+        <button class="botaoLimpar" id="limparPorcentagem">
+          Limpar <span class="material-symbols-outlined"> delete </span>
+        </button>
+        <button class="botaoCalcular" id="calcularProporcao">
+          Calcular <span class="material-symbols-outlined"> calculate </span>
+        </button>
+      </div>
+    </div>
+  </div>
 </div>

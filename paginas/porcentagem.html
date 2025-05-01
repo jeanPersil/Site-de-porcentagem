@@ -1,13 +1,26 @@
-<p>Exemplo: quanto é 15% de R$300 ?</p>
+<div class="inputs">
+  <p class="exemplo">Exemplo:15% de 300R$ é quanto?</p>
+  <div class="input">
+    <label for="percentual">Quanto é</label>
+    <input type="number" id="percentual" step="0.01" placeholder=" 0.00" />
+  </div>
 
-<div>
-  <form id="formPorcentagem">
-    <label for="">Quanto é</label>
-    <input type="number" id="percentual" step="any" placeholder="0.00" />
-    <label for="">De (valor)</label>
-    <input type="number" id="valorBase" step="any" placeholder="0.00" />
-    <input type="" id="resultado" placeholder="Resultado" readonly />
-    <button>Limpar</button>
-    <button>Calcular</button>
-  </form>
+  <div class="input">
+    <label for="valorBase">De (valor)</label>
+    <input type="number" id="valorBase" step="0.01" placeholder=" 0.00" />
+  </div>
+
+  <div class="input action-group">
+    <label for="resultado">Resultado</label>
+    <input type="text" id="resultado" placeholder=" 0.00" readonly />
+
+    <div class="buttons">
+      <button class="botaoLimpar" id="limparPorcentagem">
+        Limpar <span class="material-symbols-outlined"> delete </span>
+      </button>
+      <button class="botaoCalcular" id="calcularPorcentagem">
+        Calcular <span class="material-symbols-outlined"> calculate </span>
+      </button>
+    </div>
+  </div>
 </div>

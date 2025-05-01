@@ -8,14 +8,16 @@ function navegarViaAjax(url, seletor) {
       elemento.innerHTML = html;
 
       const btnCalcularProporcao = document.getElementById("calcularProporcao");
-      const formProporcao = document.getElementById("formProporcao");
-
-      if (formPorcentagem) {
-        formPorcentagem.addEventListener("submit", calcularPorcentagem);
-      }
+      const btnCalcularPorcentagem = document.getElementById(
+        "calcularPorcentagem"
+      );
 
       if (btnCalcularProporcao) {
         btnCalcularProporcao.addEventListener("click", calcularProporcao);
+      }
+
+      if (btnCalcularPorcentagem) {
+        btnCalcularPorcentagem.addEventListener("click", calcularPorcentagem);
       }
     })
 
@@ -34,24 +36,41 @@ document.querySelectorAll("[link]").forEach((link) => {
   };
 });
 
-function calcularPorcentagem(event) {
-  event.preventDefault();
-
+function calcularPorcentagem() {
   const percentual = parseFloat(document.getElementById("percentual").value);
   const valorBase = parseFloat(document.getElementById("valorBase").value);
   const inputResultado = document.getElementById("resultado");
+
+  if (isNaN(percentual) || isNaN(valorBase)) {
+    alert("Por favor, preencha ambos os campos com valores numéricos");
+    return;
+  }
+
+  if (valorBase === 0) {
+    alert("O valor total não pode ser zero!");
+    return;
+  }
+
   let resultado = (valorBase * percentual) / 100;
 
-  inputResultado.value = resultado;
+  inputResultado.value = `${resultado.toFixed(2)}R$`;
 }
 
-function calcularProporcao(event) {
-  event.preventDefault();
-  const valorTotal = parseFloat(document.getElementById("valorTotal").value);
+function calcularProporcao() {
   const valorBase = parseFloat(document.getElementById("valorBase").value);
+  const valorTotal = parseFloat(document.getElementById("valorTotal").value);
   const inputResultado = document.getElementById("resultado");
 
-  let resultado = (valorBase * valorTotal) / 100;
+  if (isNaN(valorBase) || isNaN(valorTotal)) {
+    alert("Por favor, preencha ambos os campos com valores numéricos");
+    return;
+  }
 
-  inputResultado.value = `${resultado}%`;
+  if (valorTotal === 0) {
+    alert("O valor total não pode ser zero!");
+    return;
+  }
+
+  const resultado = (valorBase / valorTotal) * 100;
+  inputResultado.value = `${resultado.toFixed(2)}%`;
 }
