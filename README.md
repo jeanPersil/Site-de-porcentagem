@@ -23,3 +23,14 @@ Clique no botão de navegação para abrir o menu (disponível em dispositivos m
 Utilize os campos de input para calcular as proporções ou porcentagens.
 
 Use o botão de limpar para zerar os campos.
+
+Aqui está uma imagem do meu projeto:
+
+<div style="display: flex; justify-content: space-around;">
+  <img src="imgs/mobile.png" alt="Imagem do projeto" width="300" />
+  <img src="imgs/mobile 2.png" alt="Imagem do projeto" width="300" />
+</div>
+
+<div style="display: flex; justify-content: center;">
+<img src="imgs/telanormal.png" alt="Imagem do projeto" width="1000" />
+</div>
