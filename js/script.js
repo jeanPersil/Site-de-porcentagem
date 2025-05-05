@@ -1,7 +1,14 @@
+import {
+  calcularPorcentagem,
+  calcularProporcao,
+  limparTodosInputs,
+} from "./calculo.js";
+
 const menuBurguer = document.getElementById("menu-button");
 const navegacao = document.getElementById("navegacao");
 
 document.addEventListener("DOMContentLoaded", function () {
+  navegacao.classList.remove("mostrar");
   const linkPadrao = document.querySelector("nav a.active");
   if (linkPadrao) {
     navegarViaAjax(
@@ -9,6 +16,10 @@ document.addEventListener("DOMContentLoaded", function () {
       linkPadrao.getAttribute("destino")
     );
   }
+});
+
+menuBurguer.addEventListener("click", () => {
+  navegacao.classList.toggle("mostrar");
 });
 
 function navegarViaAjax(url, seletor) {
@@ -25,6 +36,11 @@ function navegarViaAjax(url, seletor) {
         "calcularPorcentagem"
       );
 
+      const btnLimpar = document.getElementById("limpar");
+
+      if (btnLimpar) {
+        btnLimpar.addEventListener("click", limparTodosInputs);
+      }
       if (btnCalcularProporcao) {
         btnCalcularProporcao.addEventListener("click", calcularProporcao);
       }
@@ -47,47 +63,4 @@ document.querySelectorAll("[link]").forEach((link) => {
     e.preventDefault();
     navegarViaAjax(url, seletorDestino);
   };
-});
-
-function calcularPorcentagem() {
-  const percentual = parseFloat(document.getElementById("percentual").value);
-  const valorBase = parseFloat(document.getElementById("valorBase").value);
-  const inputResultado = document.getElementById("resultado");
-
-  if (isNaN(percentual) || isNaN(valorBase)) {
-    alert("Por favor, preencha ambos os campos com valores numéricos");
-    return;
-  }
-
-  if (valorBase === 0) {
-    alert("O valor total não pode ser zero!");
-    return;
-  }
-
-  let resultado = (valorBase * percentual) / 100;
-
-  inputResultado.value = `${resultado.toFixed(2)}R$`;
-}
-
-function calcularProporcao() {
-  const valorBase = parseFloat(document.getElementById("valorBase").value);
-  const valorTotal = parseFloat(document.getElementById("valorTotal").value);
-  const inputResultado = document.getElementById("resultado");
-
-  if (isNaN(valorBase) || isNaN(valorTotal)) {
-    alert("Por favor, preencha ambos os campos com valores numéricos");
-    return;
-  }
-
-  if (valorTotal === 0) {
-    alert("O valor total não pode ser zero!");
-    return;
-  }
-
-  const resultado = (valorBase / valorTotal) * 100;
-  inputResultado.value = `${resultado.toFixed(2)}%`;
-}
-
-menuBurguer.addEventListener("click", () => {
-  navegacao.classList.toggle("mostrar");
 });

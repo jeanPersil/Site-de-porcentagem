@@ -1,17 +1,8 @@
-/* Import no CSS */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Inter:wght@400;500&display=swap");
 
-h1,
-h2,
-h3,
-nav {
-  font-family: "Montserrat", sans-serif;
-  color: #022b3a;
-}
-
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -27,10 +18,19 @@ body {
   background-color: #e1e5f2;
 }
 
+h1,
+h2,
+h3,
+nav {
+  font-family: "Montserrat", sans-serif;
+  color: #022b3a;
+}
+
 header {
   grid-area: cabecalho;
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 1rem;
 }
 
@@ -41,9 +41,9 @@ nav {
 
 main {
   grid-area: calculos;
-  align-items: center;
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding: 1rem;
 }
 
@@ -60,21 +60,21 @@ nav a {
   text-decoration: none;
   padding: 1rem;
   color: white;
+  transition: background-color 0.2s;
 }
 
 nav a:hover {
   background-color: #1f7a8c;
   width: 100%;
-  transition: 0.2s;
 }
 
 input {
-  border: grey solid 1px;
+  border: 1px solid grey;
   border-radius: 4px;
   height: 30px;
-  width: 250px;
-  font-weight: 500;
+  width: 100%;
   font-size: 11pt;
+  font-weight: 500;
 }
 
 .titulo {
@@ -95,7 +95,7 @@ input {
   padding: 1.5rem;
   min-height: 200px;
   border-radius: 10px;
-  border-top: #022b3a 3px solid;
+  border-top: 3px solid #022b3a;
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
@@ -115,30 +115,12 @@ input {
   min-width: 150px;
 }
 
-input {
-  border: grey solid 1px;
-  border-radius: 4px;
-  height: 30px;
-  width: 100%;
-  font-weight: 500;
-  font-size: 11pt;
-}
-
 .buttons {
   display: flex;
   position: absolute;
   bottom: 5px;
   right: 5px;
   gap: 10px;
-}
-
-.menu-button {
-  position: fixed;
-  display: none;
-  top: 0;
-  left: 0;
-  padding: 10px;
-  z-index: 1000;
 }
 
 button {
@@ -156,6 +138,10 @@ button {
   transition: background-color 0.2s;
 }
 
+button:hover {
+  background-color: #022b3a;
+}
+
 .limpar {
   background-color: lightcoral;
 }
@@ -168,8 +154,18 @@ button {
   width: 200px;
 }
 
-button:hover {
-  background-color: #022b3a;
+.linha {
+  display: flex;
+  gap: 5px;
+}
+
+.menu-button {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  z-index: 1000;
 }
 
 @media (max-width: 860px) {
@@ -183,11 +179,9 @@ button:hover {
   }
 
   header {
-    justify-content: center;
     padding-left: 50px;
     padding-right: 20px;
     height: 60px;
-    align-items: center;
   }
 
   header h1 {
@@ -196,16 +190,15 @@ button:hover {
 
   nav {
     position: fixed;
-    top: 0px;
+    top: 0;
     left: 0;
     width: 50%;
-    height: 100%; /* Altura restante da tela */
+    height: 100%;
     background-color: #022b3a;
     z-index: 100;
     overflow-y: auto;
     transform: translateX(-100%);
     transition: transform 0.3s ease;
-    display: block;
   }
 
   nav.mostrar {
@@ -217,17 +210,12 @@ button:hover {
   }
 
   nav li {
-    margin-bottom: 0;
-    margin-top: 20px;
+    margin: 20px 0 0;
   }
 
   nav a {
     padding: 15px 20px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  .mostrar {
-    display: block;
   }
 
   .menu-button {
@@ -236,7 +224,6 @@ button:hover {
 
   .colum {
     padding: 1rem;
-    min-height: auto;
   }
 
   .row {
@@ -249,20 +236,16 @@ button:hover {
   }
 
   .buttons {
+    position: static;
     flex-direction: column;
     align-items: flex-end;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
   }
 
   .calcular,
   .limpar {
     width: 100%;
-  }
-
-  .buttons {
-    position: unset;
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-top: 20px; /* Substitui o position:absolute */
   }
 }
